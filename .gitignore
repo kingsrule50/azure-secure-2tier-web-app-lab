@@ -1,0 +1,11 @@
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# SSH/private key material
+*.pem
+*.key
+id_rsa
+id_ed25519
