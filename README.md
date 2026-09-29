@@ -34,23 +34,8 @@ This approach reduces the attack surface and demonstrates a basic secure cloud a
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    User["Admin Workstation"] -->|SSH 22| PIP["Web VM Public IP"]
-    Internet["Internet"] -->|HTTP 80| PIP
-    PIP --> WEB["vm-web-01<br/>10.0.1.4"]
-    WEB -->|Private VNet traffic| BACKEND["Backend VM<br/>vm-db-01<br/>10.0.2.4"]
-
-    subgraph VNET["vnet-2tier-web<br/>10.0.0.0/16"]
-        subgraph WEBNET["snet-web<br/>10.0.1.0/24"]
-            WEB
-        end
-
-        subgraph BACKENDNET["snet-db<br/>10.0.2.0/24"]
-            BACKEND
-        end
-    end
-```
+![Azure two-tier web architecture](docs/architecture.png)
+ 
  
 The web VM has a public IP for controlled administrative and web access. The backend VM has **no public IP** and is reachable only through private Azure networking.
 
